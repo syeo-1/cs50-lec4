@@ -1,0 +1,77 @@
+SQL models and migrations
+
+- model
+    - don't need to write actual sql queries, but use python classes as an abstraction layer to essential do the same
+
+- migrations
+    - a technique allowing us to update the database in response to changes made to the models
+
+- sqlite supported types
+    - text, numeric, integer, real, blob (binary large object--> audio files for example)
+
+- 8:34
+    -command to create table flights
+
+12:10 - some useful constraints for columns
+
+13:10 - insert example
+
+19:20 creating the actual flights table
+24:24 wildcard select query example
+25:20 sql functions (could be useful)
+29:32 clauses
+
+33:40 foreign keys
+35:00 many-many and other types of relationships
+36:50 association table (or join table)
+
+
+38:50 join queries
+40:17 join explanations, oh it's just set operations!
+    - inner join is intersect, then left outer, right outer, and full outer join (I assume full outer is everything except intersect stuff)
+
+41:00 speed up queries using index!
+42:45 sql injection
+45:40 race condition
+
+47:28 back to django
+49:22 creating models for flights app!
+51:35 tell django to update the database for the models that have been created
+    - migrations --> create a migration, to say here are some changes I'd like to apply to the db, then you migrate them
+    to tell django to take those changes and apply them to the database
+    - so first, create the migration, instructions for how to manipulate the database
+    - then take that migration step, to take those instructions and apply to the underlying db
+    -COMMANDS TO DO THAT:
+    - python manage.py makemigrations
+        -  this creates the model. it gives instructions to django on how to manipulate the database
+    - now apply the migrations to apply it to the database
+        - python manage.py migrate
+
+54:09 interacting with the database via django shell
+    - python manage.py shell
+
+59:00 modifying the Flight model to use foreign keys
+im at 1:01:00. some details about related_names here!!
+
+1:11:40 django admin app!
+- to use the admin app, need to create an admin account
+- to do that run: python manage.py createsuperuser
+    username: seans
+    password: password
+
+1:13:00
+- need to add the models to the admin app if want to change them using admin interface
+- this is done in the admin.py file
+
+1:37:39
+- customizing django admin interface
+
+1:39:15
+- a config for admin Brian likes. A way to manipulate many to many relationships
+
+1:40:30
+- authentication in django
+
+users in my users app!
+harry, harrypotter1
+ron, ronweasley1
